@@ -68,39 +68,74 @@
 
 
 // Interfaces
-  interface Transaction {
-      payerAccountNumber: number;
-      payeeAccountNumber: number;
-  }
-  interface BankAccount {
-      accountNumber: number;
-      accountHolder:string;
-      balance: number;
-      isActive: boolean;
-      transaction: Transaction[];
-  }
+//   interface Transaction {
+//       payerAccountNumber: number;
+//       payeeAccountNumber: number;
+//   }
+//   interface BankAccount {
+//       accountNumber: number;
+//       accountHolder:string;
+//       balance: number;
+//       isActive: boolean;
+//       transaction: Transaction[];
+//   }
 
 
-  const transaction1: Transaction = {
-    payerAccountNumber: 112, 
-    payeeAccountNumber: 234,
-  }
-  const transaction2: Transaction = {
-    payerAccountNumber: 112, 
-    payeeAccountNumber: 523,
-  }
-  const transaction3: Transaction = {
-    payerAccountNumber: 112, 
-    payeeAccountNumber: 623,
-  }
+//   const transaction1: Transaction = {
+//     payerAccountNumber: 112, 
+//     payeeAccountNumber: 234,
+//   }
+//   const transaction2: Transaction = {
+//     payerAccountNumber: 112, 
+//     payeeAccountNumber: 523,
+//   }
+//   const transaction3: Transaction = {
+//     payerAccountNumber: 112, 
+//     payeeAccountNumber: 623,
+//   }
 
-   const bankAccount: BankAccount = {
-      accountNumber:123,
-      accountHolder:'Tanvir',
-      balance: 3000,
-      isActive: true,
-      transaction: [transaction1, transaction2, transaction3]
-   }
+//    const bankAccount: BankAccount = {
+//       accountNumber:123,
+//       accountHolder:'Tanvir',
+//       balance: 3000,
+//       isActive: true,
+//       transaction: [transaction1, transaction2, transaction3]
+//    }
 
-   console.log(bankAccount);
+//    console.log(bankAccount);
    
+
+
+
+//   --- Reuse of two interfaces together --- //
+
+//  here is a problem of repeatation of name, price, fileSize, format etc. properties
+//to avoid this repeatation we can use extends keyword to include other interfaces properties into another 
+ interface Book {
+     name: string;
+     price: number;
+ }
+
+ interface EBook extends Book{
+    //  name: string;
+    //   price: number;
+      fileSize: number;
+      format: string;
+ }
+
+ interface AudioBook extends EBook{
+    //  name: string;
+    //   price: number;
+    //   fileSize: number;
+    //   format: string;
+      duration: number;
+ }
+
+ const book: AudioBook={
+     name:'Biography of Muhammad SW',
+     price: 1500,
+     fileSize: 300,
+     format: 'pdf',
+     duration: 5
+ }
+

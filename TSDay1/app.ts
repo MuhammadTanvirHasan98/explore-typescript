@@ -69,19 +69,38 @@
 
 // Interfaces
   interface Transaction {
-      payerAccountNumber: number,
-      payeeAccountNumber: number,
+      payerAccountNumber: number;
+      payeeAccountNumber: number;
   }
   interface BankAccount {
-      accountNumber: number,
-      accountHolder:string,
-      balance: number,
-      isActive: boolean,
-      transaction: Transaction[]
+      accountNumber: number;
+      accountHolder:string;
+      balance: number;
+      isActive: boolean;
+      transaction: Transaction[];
   }
 
 
+  const transaction1: Transaction = {
+    payerAccountNumber: 112, 
+    payeeAccountNumber: 234,
+  }
+  const transaction2: Transaction = {
+    payerAccountNumber: 112, 
+    payeeAccountNumber: 523,
+  }
+  const transaction3: Transaction = {
+    payerAccountNumber: 112, 
+    payeeAccountNumber: 623,
+  }
 
-   const bankAccount = {
-       accountNumber: 
+   const bankAccount: BankAccount = {
+      accountNumber:123,
+      accountHolder:'Tanvir',
+      balance: 3000,
+      isActive: true,
+      transaction: [transaction1, transaction2, transaction3]
    }
+
+   console.log(bankAccount);
+   

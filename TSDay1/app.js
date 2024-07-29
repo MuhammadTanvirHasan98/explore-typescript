@@ -1,21 +1,12 @@
 // let num1= 5;
-var transaction1 = {
-    payerAccountNumber: 112,
-    payeeAccountNumber: 234,
-};
-var transaction2 = {
-    payerAccountNumber: 112,
-    payeeAccountNumber: 523,
-};
-var transaction3 = {
-    payerAccountNumber: 112,
-    payeeAccountNumber: 623,
-};
-var bankAccount = {
-    accountNumber: 123,
-    accountHolder: 'Tanvir',
-    balance: 3000,
-    isActive: true,
-    transaction: [transaction1, transaction2, transaction3]
-};
-console.log(bankAccount);
+function printId(id) {
+    // console.log(id.toUpperCase());// it will give error bcz this id can be number also. So we have to handle this by logically
+    if (typeof id === 'string') {
+        console.log(id.toUpperCase());
+    }
+    else {
+        console.log(id);
+    }
+}
+printId(23);
+printId('muhammad3196');

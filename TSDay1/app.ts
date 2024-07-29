@@ -109,33 +109,82 @@
 
 //   --- Reuse of two interfaces together --- //
 
-//  here is a problem of repeatation of name, price, fileSize, format etc. properties
-//to avoid this repeatation we can use extends keyword to include other interfaces properties into another 
- interface Book {
-     name: string;
-     price: number;
- }
+//  here is a problem of repetition of name, price, fileSize, format etc. properties
+//to avoid this repetition we can use extends keyword to include other interfaces properties into another 
+//  interface Book {
+//      name: string;
+//      price: number;
+//  }
 
- interface EBook extends Book{
-    //  name: string;
-    //   price: number;
-      fileSize: number;
-      format: string;
- }
+//  interface EBook extends Book{
+//     //  name: string;
+//     //   price: number;
+//       fileSize: number;
+//       format: string;
+//  }
 
- interface AudioBook extends EBook{
-    //  name: string;
-    //   price: number;
-    //   fileSize: number;
-    //   format: string;
-      duration: number;
- }
+//  interface AudioBook extends EBook{
+//     //  name: string;
+//     //   price: number;
+//     //   fileSize: number;
+//     //   format: string;
+//       duration: number;
+//  }
 
- const book: AudioBook={
-     name:'Biography of Muhammad SW',
-     price: 1500,
-     fileSize: 300,
-     format: 'pdf',
-     duration: 5
- }
+//  const book: AudioBook={
+//      name:'Biography of Muhammad SW',
+//      price: 1500,
+//      fileSize: 300,
+//      format: 'pdf',
+//      duration: 5
+//  }
+
+
+// merging of two interfaces
+
+// interface Book{
+//     name: string;
+//     price: number;
+// }
+
+// interface Book{
+//     author: string;
+// }
+
+// // we have to use this three property in this book of type Book
+// // Because the same name interfaces auto merging together and consider as a single interface
+// const book: Book={
+//    name:'Science Fiction',
+//    price: 1200,
+//    author: 'Muhammad Tanvir Hasan'
+// }
+
+
+// Note: Merging is not possible in type declaration
+// type Book = {
+//   name: string;
+//   price: number;
+// }
+
+// type Book = {
+//   author: string;
+// }
+// it gives error of duplicating same type//
+
+
+
+// --- Topic: Unions ---//
+
+type ID = number | string;
+// this is called Narrowing: The way we handle this fact//
+function printId (id: ID){
+    // console.log(id.toUpperCase());// it will give error bcz this id can be number also. So we have to handle this by logically
+    if(typeof id === 'string'){
+     console.log(id.toUpperCase());
+    }else{
+        console.log(id)
+    }
+}
+printId(23)
+printId('muhammad3196')
 

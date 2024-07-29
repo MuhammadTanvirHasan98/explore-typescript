@@ -175,16 +175,28 @@
 
 // --- Topic: Unions ---//
 
-type ID = number | string;
-// this is called Narrowing: The way we handle this fact//
-function printId (id: ID){
-    // console.log(id.toUpperCase());// it will give error bcz this id can be number also. So we have to handle this by logically
-    if(typeof id === 'string'){
-     console.log(id.toUpperCase());
-    }else{
-        console.log(id)
-    }
+// type ID = number | string;
+// // this is called Narrowing: The way we handle this fact//
+// function printId (id: ID){
+//     // console.log(id.toUpperCase());// it will give error bcz this id can be number also. So we have to handle this by logically
+//     if(typeof id === 'string'){
+//      console.log(id.toUpperCase());
+//     }else{
+//         console.log(id)
+//     }
+// }
+// printId(23)
+// printId('muhammad3196')
+
+
+
+
+function getFirstThree(x: string | number[]){
+    return x.slice(0,3);
 }
-printId(23)
-printId('muhammad3196')
+
+console.log(getFirstThree('Hello'));
+console.log(getFirstThree([2,1,2,4,5]));
+
+
 
